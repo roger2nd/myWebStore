@@ -1,0 +1,79 @@
+.mynavBarColor {
+    background-color: #1C3041;
+}
+
+.mynavItems {
+    background-color: #89043D;
+}
+
+.myActiveItems a:hover a:focus {
+    color: #89043D;
+    background-color: #B2ABF2;
+}
+
+.myActive {
+    color: #89043D;
+    background-color: #B2ABF2;
+}
+
+.input-group-custom {
+    position: relative;
+  }
+
+.input-button-custom{
+    position: relative;
+    right: 15px;
+    z-index: 10;
+  }
+
+.customColor {
+    color: #fff;
+    background-color: #89043D;
+}
+
+.navSticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.btn-outline-primary {
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+.btn-outline-primary:hover {
+  color: #18F2B2 !important;
+  background-color: transparent;
+  border-color: #18F2B2 !important;
+}
+
+.nav-link:hover {
+  color: #18F2B2 !important;
+}
+
+.logo:hover {
+  color: #89043D !important;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.modal-backdrop {
+  background: rgb(2,0,36);
+  background: linear-gradient(225deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+.btn-primary {
+  background-color: #89043D;
+  border-color: #18F2B2;
+}
+
+.form-control {
+  border-color: #89043D;
+}

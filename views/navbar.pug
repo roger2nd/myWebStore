@@ -1,0 +1,69 @@
+include components/modal.pug
+nav.navbar.sticky.navbar-expand-lg.navbar-dark.container-fluid.mynavBarColor
+  a.navbar-brand.logo(href='/homepage' role='button')
+    i.fa.fa-store
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.active
+        a.nav-link(href='/homepage')
+          | Home
+          span.sr-only (current)
+      li.nav-item
+        a.nav-link(href='#') SAC
+      li.nav-item.dropdown
+        a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+          | Categorias
+        .dropdown-menu(aria-labelledby='navbarDropdown')
+          a.dropdown-item(href='/search') Placeholder 1
+          a.dropdown-item(href='/search') Placeholder 2
+          a.dropdown-item(href='/search') Placeholder 3
+          .dropdown-divider
+          a.dropdown-item(href='/search') Todas categorias
+      li.nav-item
+        a.nav-link.disabled(href='#') Lojas
+    form.form-inline.my-2.my-lg-0(action='/search')
+      input.form-control.mr-sm-2(type='search' placeholder='Buscar' name='query' aria-label='Search' required)
+      button.btn.btn-outline-primary.my-2.my-sm-0(type='submit')
+        i.fas.fa-search
+    ul.navbar-nav.justify-content-end
+      li.nav-item.loggin(data-toggle="modal",data-target="#myModal")
+        a.nav-link(href='#')
+          i.fa.fa-user
+          |  Login
+      li.nav-item
+        a.nav-link(href='#')
+          i.fas.fa-shopping-cart
+          |  Carrinho
++modal("myModal")
+  .col-6
+    .modal-body
+      h3.mb-4 Log in
+      form.signin-form(action='#' name='login')
+        .form-group
+          input#user-name.form-control(type='text' placeholder='Usuário' required)
+        .form-group
+          input#user-email.form-control(type='email' placeholder='Email' required)
+        .form-group
+          button.form-control.btn.btn-primary.rounded.submit.px-3(type='submit') Entrar
+        .form-group.d-md-flex
+          .form-check.w-50
+            label.custom-control.fill-checkbox
+              input.fill-control-input(type='checkbox')
+              span.fill-control-indicator
+              span.fill-control-description Lembrar me
+  .col-6
+    .modal-body
+      h3.mb-4 Cadastre-se
+      form.signin-form(action='#' name='nome')
+        .form-group
+          input#usuario.form-control(type='text' placeholder='Usuário' required)
+        .form-group
+          input#senha.form-control(type='password' placeholder='Senha' required)
+        .form-group
+          input#senhaconfir.form-control(type='password' placeholder='Confimação da Senha' required)
+        .form-group
+          input#email.form-control(type='email' placeholder='Email' required)
+        .form-group
+          button.form-control.btn.btn-primary.rounded.submit.px-3(type='submit') Salvar

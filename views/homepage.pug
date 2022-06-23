@@ -1,0 +1,22 @@
+extends layout/layout.pug
+append head
+  link(rel='stylesheet' href='stylesheets/carousel.css')
+  link(rel='stylesheet' href='stylesheets/owl.css')
+  link(rel='stylesheet' href='stylesheets/herobanner.css')
+  link(rel="stylesheet" href="css/ionicons.min.css")
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css')
+  script(src='javascripts/owl.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js')
+
+append content
+  include carousels/hero.pug
+  include components/producttile.pug
+  include components/productpanel.pug
+  .container-fluid
+    .row
+      -for (var x = 1; x < 9; x++)
+        .col-sm-3
+          +producttile(`Produto ${x}`,'https://via.placeholder.com/120x160',`${Math.floor(Math.random() * 10)}` )
+  include carousels/owl.pug
+append foot
+  include layout/footer

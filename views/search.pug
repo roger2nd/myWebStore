@@ -1,0 +1,332 @@
+extends layout/layout.pug
+append head
+  link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css')
+  link(rel='stylesheet' href='stylesheets/search.css')
+  script(src='javascripts/search.js')
+append content
+  .container.mt-5
+    #header.bg-white.rounded.d-flex.align-items-center.justify-content-between
+      button#filter-btn.btn.btn-hide.text-uppercase(type='button' data-toggle='collapse' data-target='#filterbar' aria-expanded='false' aria-controls='filterbar')
+        span#filter-angle.fas.fa-angle-left
+        span#btn-txt 
+          |Alternar Filtros
+      nav.navbar.navbar-expand-lg.navbar-light.pl-lg-0.pl-auto
+        button#icon.navbar-toggler(type='button' data-toggle='collapse' data-target='#mynav' aria-controls='mynav' aria-expanded='false' aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #mynav.collapse.navbar-collapse
+          ul.navbar-nav.d-lg-flex.align-items-lg-center
+            li.nav-item.active
+              select#sort(name='sort')
+                option(value='' hidden='' selected='') Refinar por
+                option(value='price') Preço
+                option(value='popularity') Popularidade
+                option(value='rating') Rating
+            li.nav-item.d-inline-flex.align-items-center.justify-content-between.mb-lg-0.mb-3
+              #select2.d-inline-flex.align-items-center.mx-lg-2
+                .pl-2 Produtos:
+                select#pro(name='pro')
+                  option(value='18') 18
+                  option(value='19') 19
+                  option(value='20') 20
+              .font-weight-bold.mx-2.result 18 a 200
+            li.nav-item.d-lg-none.d-inline-flex
+      .ml-auto.mt-3.mr-2
+        nav(aria-label='Page navigation example')
+          ul.pagination
+            li.page-item
+              a.page-link(href='#' aria-label='Previous')
+                span.font-weight-bold(aria-hidden='true') <
+                span.sr-only Anterior
+            li.page-item.active
+              a.page-link(href='#') 1
+            li.page-item
+              a.page-link(href='#') ..
+            li.page-item
+              a.page-link(href='#') 24
+            li.page-item
+              a.page-link(href='#' aria-label='Next')
+                span.font-weight-bold(aria-hidden='true') >
+                span.sr-only Próximo
+    #content.my-5
+      #filterbar.collapse
+        .box.border-bottom
+          .form-group.text-center
+            .btn-group(data-toggle='buttons')
+              label.btn.btn-success.form-check-label
+                input.form-check-input(type='radio')
+                |  Resetar
+              label.btn.btn-success.form-check-label.active
+                input.form-check-input(type='radio' checked='')
+                |  Aplicar
+          div
+            label.tick
+              | Novo
+              input(type='checkbox' checked='checked')
+              span.check
+          div
+            label.tick
+              | Oferta 
+              input(type='checkbox')
+              span.check
+        .box.border-bottom
+          .box-label.text-uppercase.d-flex.align-items-center
+            | Categorias
+            button#out.btn.ml-auto(type='button' data-toggle='collapse' data-target='#inner-box' aria-expanded='false' aria-controls='inner-box' onclick='outerFilter()')
+              span.fas.fa-plus
+          #inner-box.collapse.mt-2.mr-1
+            .my-1
+              label.tick
+                | Placeholder 1
+                input(type='checkbox' checked='checked')
+                span.check
+            .my-1
+              label.tick
+                | Placeholder 2
+                input(type='checkbox')
+                span.check
+            .my-1
+              label.tick
+                | Placeholder 3
+                input(type='checkbox')
+                span.check
+            .my-1
+              label.tick
+                | Placeholder 4
+                input(type='checkbox')
+                span.check
+            .my-1
+              label.tick
+                | Placeholder 5
+                input(type='checkbox')
+                span.check
+            .my-1
+              label.tick
+                | Placeholder 6
+                input(type='checkbox' checked='')
+                span.check
+            .my-1
+              label.tick
+                | Placeholder 7
+                input(type='checkbox')
+                span.check
+            .my-1
+              label.tick
+                | Placeholder 8
+                input(type='checkbox' checked='')
+                span.check
+        .box.border-bottom
+          .box-label.text-uppercase.d-flex.align-items-center
+            | temporada
+            button.btn.ml-auto(type='button' data-toggle='collapse' data-target='#inner-box2' aria-expanded='false' aria-controls='inner-box2')
+              span.fas.fa-plus
+          #inner-box2.collapse.mt-2.mr-1
+            .my-1
+              label.tick
+                | Primavera
+                input(type='checkbox' checked='checked')
+                span.check
+            .my-1
+              label.tick
+                | Verão
+                input(type='checkbox')
+                span.check
+            .my-1
+              label.tick
+                | Outono
+                input(type='checkbox' checked='')
+                span.check
+            .my-1
+              label.tick
+                | Inverno
+                input(type='checkbox')
+                span.check
+            .my-1
+              label.tick
+                | Chuvoso
+                input(type='checkbox')
+                span.check
+        .box.border-bottom
+          .box-label.text-uppercase.d-flex.align-items-center
+            | preço
+            button.btn.ml-auto(type='button' data-toggle='collapse' data-target='#price' aria-expanded='false' aria-controls='price')
+              span.fas.fa-plus
+          #price.collapse
+            .middle
+              .multi-range-slider
+                input#input-left(type='range' min='0' max='100' value='10')
+                input#input-right(type='range' min='0' max='100' value='50')
+                .slider
+                  .track
+                  .range
+                  .thumb.left
+                  .thumb.right
+            .d-flex.align-items-center.justify-content-between.mt-2
+              div
+                span#amount-left.font-weight-bold
+                |
+              div
+                span#amount-right.font-weight-bold
+                |
+        .box
+          .box-label.text-uppercase.d-flex.align-items-center
+            | tamanho
+            button.btn.ml-auto(type='button' data-toggle='collapse' data-target='#size' aria-expanded='false' aria-controls='size')
+              span.fas.fa-plus
+          #size.collapse
+            .btn-group.d-flex.align-items-center.flex-wrap(data-toggle='buttons')
+              label.btn.btn-success.form-check-label
+                input.form-check-input(type='checkbox')
+                |  80
+              label.btn.btn-success.form-check-label
+                input.form-check-input(type='checkbox' checked='')
+                |  92
+              label.btn.btn-success.form-check-label
+                input.form-check-input(type='checkbox' checked='')
+                |  102
+              label.btn.btn-success.form-check-label
+                input.form-check-input(type='checkbox' checked='')
+                |  104
+              label.btn.btn-success.form-check-label
+                input.form-check-input(type='checkbox' checked='')
+                |  106
+              label.btn.btn-success.form-check-label
+                input.form-check-input(type='checkbox' checked='')
+                |  108
+      #products
+        .row.mx-0
+          .col-lg-4.col-md-6
+            .card.d-flex.flex-column.align-items-center
+              .product-name Nome do Produto 1
+              .card-img
+                img(src='https://via.placeholder.com/273x180' alt='')
+              .card-body.pt-5
+                .text-muted.text-center.mt-auto Cores
+                .d-flex.align-items-center.justify-content-center.colors.my-2
+                  .btn-group(data-toggle='buttons' data-tooltip='tooltip' data-placement='right' title='choose color')
+                    label.btn.btn-red.form-check-label
+                      input.form-check-input(type='radio' autocomplete='off')
+                    label.btn.btn-blue.form-check-label.active
+                      input.form-check-input(type='radio' autocomplete='off')
+                    label.btn.btn-green.form-check-label
+                      input.form-check-input(type='radio' autocomplete='off')
+                    label.btn.btn-orange.form-check-label
+                      input.form-check-input(type='radio' autocomplete='off')
+                    label.btn.btn-pink.form-check-label
+                      input.form-check-input(type='radio' autocomplete='off')
+                .d-flex.align-items-center.price
+                  .del.mr-2
+                    span.text-dark R$5500
+                  .font-weight-bold R$4500
+          .col-lg-4.col-md-6.pt-md-0.pt-3
+            .card.d-flex.flex-column.align-items-center
+              .product-name Nome Produto 2
+              .card-img
+                img#shirt(src='https://via.placeholder.com/273x180' alt='' height='100')
+              .text-muted.text-center.mt-auto Tamanhos
+              #avail-size
+                .btn-group.d-flex.align-items-center.flex-wrap(data-toggle='buttons')
+                  label.btn.btn-success.form-check-label
+                    input.form-check-input(type='checkbox')
+                    |  80
+                  label.btn.btn-success.form-check-label
+                    input.form-check-input(type='checkbox' checked='')
+                    |  92
+                  label.btn.btn-success.form-check-label
+                    input.form-check-input(type='checkbox' checked='')
+                    |  102
+                  label.btn.btn-success.form-check-label
+                    input.form-check-input(type='checkbox' checked='')
+                    |  104
+                  label.btn.btn-success.form-check-label
+                    input.form-check-input(type='checkbox' checked='')
+                    |  106
+                  label.btn.btn-success.form-check-label
+                    input.form-check-input(type='checkbox' checked='')
+                    |  108
+              .card-body.pt-0
+                .text-muted.text-center.mt-auto Cores
+                .d-flex.align-items-center.justify-content-center.colors.my-2
+                  .btn-group(data-toggle='buttons' data-tooltip='tooltip' data-placement='right' title='choose color')
+                    label.btn.btn-light.border.form-check-label
+                      input.form-check-input(type='radio' autocomplete='off')
+                    label.btn.btn-blue.form-check-label.active
+                      input.form-check-input(type='radio' autocomplete='off')
+                    label.btn.btn-green.form-check-label
+                      input.form-check-input(type='radio' autocomplete='off')
+                    label.btn.btn-orange.form-check-label
+                      input.form-check-input(type='radio' autocomplete='off')
+                    label.btn.btn-pink.form-check-label
+                      input.form-check-input(type='radio' autocomplete='off')
+                .d-flex.align-items-center.price
+                  .del.mr-2
+                    span.text-dark R$5500 
+                  .font-weight-bold R$4500 
+          .col-lg-4.col-md-6.pt-lg-0.pt-md-4.pt-3
+            .card.d-flex.flex-column.align-items-center
+              .product-name.text-center Nome Produto 3
+              .card-img
+                img(src='https://via.placeholder.com/273x180' alt='')
+              .card-body.pt-5
+                .text-muted.text-center.mt-auto Cores
+                .d-flex.align-items-center.justify-content-center.colors.my-2
+                  .btn-group(data-toggle='buttons' data-tooltip='tooltip' data-placement='right' title='choose color')
+                    label.btn.btn-dark.border.form-check-label
+                      input.form-check-input(type='radio' autocomplete='off')
+                    label.btn.btn-brown.form-check-label.active
+                      input.form-check-input(type='radio' autocomplete='off')
+                .d-flex.align-items-center.justify-content-center.price
+                  .font-weight-bold R$500
+          .col-lg-4.col-md-6.pt-md-4.pt-3
+            .card.d-flex.flex-column.align-items-center
+              .product-name.text-center Nome Produto 4
+              .card-img
+                img(src='https://via.placeholder.com/273x180' alt='')
+              .card-body.pt-5
+                .text-muted.text-center.mt-auto Cores
+                .d-flex.align-items-center.justify-content-center.colors.my-2
+                  .btn-group(data-toggle='buttons' data-tooltip='tooltip' data-placement='right' title='choose color')
+                    label.btn.btn-dark.border.form-check-label
+                      input.form-check-input(type='radio' autocomplete='off')
+                    label.btn.btn-brown.form-check-label.active
+                      input.form-check-input(type='radio' autocomplete='off')
+                    label.btn.btn-pink.form-check-label
+                      input.form-check-input(type='radio' autocomplete='off')
+                    label.btn.btn-red.form-check-label
+                      input.form-check-input(type='radio' autocomplete='off')
+                .d-flex.align-items-center.justify-content-center.price
+                  .font-weight-bold R$1500
+          .col-lg-4.col-md-6.pt-md-4.pt-3
+            .card.d-flex.flex-column.align-items-center
+              .product-name.text-center Nome Produto 5
+              .card-img
+                img(src='https://via.placeholder.com/273x180' alt='')
+              .card-body.pt-5
+                .text-muted.text-center.mt-auto Cores
+                .d-flex.align-items-center.justify-content-center.colors.my-2
+                  .btn-group(data-toggle='buttons' data-tooltip='tooltip' data-placement='right' title='choose color')
+                    label.btn.btn-dark.border.form-check-label
+                      input.form-check-input(type='radio' autocomplete='off')
+                    label.btn.btn-pink.form-check-label.active
+                      input.form-check-input(type='radio' autocomplete='off')
+                    label.btn.btn-blue.form-check-label
+                      input.form-check-input(type='radio' autocomplete='off')
+                    label.btn.btn-orange.form-check-label
+                      input.form-check-input(type='radio' autocomplete='off')
+                .d-flex.align-items-center.justify-content-center.price
+                  .font-weight-bold R$1200
+          .col-lg-4.col-md-6.pt-md-4.pt-3
+            .card.d-flex.flex-column.align-items-center
+              .product-name.text-center Nome Produto 6
+              .card-img
+                img(src='https://via.placeholder.com/273x180' alt='')
+              .card-body.pt-5
+                .text-muted.text-center.mt-auto Cores
+                .d-flex.align-items-center.justify-content-center.colors.my-2
+                  .btn-group(data-toggle='buttons' data-tooltip='tooltip' data-placement='right' title='choose color')
+                    label.btn.btn-dark.border.form-check-label
+                      input.form-check-input(type='radio' autocomplete='off')
+                    label.btn.btn-brown.form-check-label.active
+                      input.form-check-input(type='radio' autocomplete='off')
+                .d-flex.align-items-center.justify-content-center.price
+                  .font-weight-bold R$900
+append foot
