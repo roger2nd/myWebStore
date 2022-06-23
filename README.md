@@ -11,4 +11,4 @@ DEBUG=myapp:* npm start
 
 Porta usada: 4778
 
-link app: localhost/4778
+link app: localhost:4778
