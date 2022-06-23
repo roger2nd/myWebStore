@@ -1,10 +1,10 @@
 # myWebStore
 
-Instalar dependencias
+Instalar dependencias com
 npm install
 
 Ligar o server
 npm start
 
-Debuger
+Debuger o server
 DEBUG=myapp:* npm start
