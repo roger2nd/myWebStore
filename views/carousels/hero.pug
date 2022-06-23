@@ -1,0 +1,26 @@
+#demo.carousel.slide(data-ride='carousel')
+  ul.carousel-indicators
+    li.active(data-target='#demo' data-slide-to='0')
+    li(data-target='#demo' data-slide-to='1')
+    li(data-target='#demo' data-slide-to='2')
+  .carousel-inner
+    .carousel-item.active
+      img(src='https://via.placeholder.com/1920x680' alt='Placeholder 1')
+      //.carousel-caption
+        h3 Cras tincidunt.
+        p Lorem ipsum dolor sit amet.
+    .carousel-item
+      img(src='https://via.placeholder.com/1920x680' alt='Placeholder 2')
+      //.carousel-caption
+        h3 Curabitur vestibulum.
+        p Lorem ipsum dolor sit amet.
+    .carousel-item
+      img(src='https://via.placeholder.com/1920x680' alt='Placeholder 3')
+      //.carousel-caption
+        h3 Aliquam eget.
+        p Lorem ipsum dolor sit amet.
+  a.carousel-control-prev(href='#demo' data-slide='prev')
+    span.carousel-control-prev-icon
+  a.carousel-control-next(href='#demo' data-slide='next')
+    span.carousel-control-next-icon
+.mb-4

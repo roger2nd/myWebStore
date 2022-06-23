@@ -1,0 +1,12 @@
+.btn-custom-tile{
+  color: #1C3041;
+  background-color: transparent !important;
+  border-color: #1C3041 !important;
+  opacity: 0.5;
+}
+
+.btn-custom-tile:hover{
+  background-color: #89043D !important;
+  border-color: #89043D !important;
+  opacity: 1;
+}

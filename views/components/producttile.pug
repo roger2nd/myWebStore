@@ -1,0 +1,14 @@
+mixin producttile(nome, img, preco)
+  .container
+    .card(style='width: 18rem;')
+      img.card-img-top(src=img alt='Produto')
+      .card-body
+        h5.card-title=nome
+        p.card-text
+          | Descrição Produto
+        p.text-right
+          | Preço: R$
+          span=preco
+        .text-center
+          a.btn.btn-primary.btn-custom-tile(href='#') Comprar
+  .mb-5

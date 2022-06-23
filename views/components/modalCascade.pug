@@ -1,0 +1,52 @@
+mixin modalCascade(id)
+  .modal.fade(id=id, tabindex='-1' role='dialog' aria-labelledby=id+'Title' aria-hidden='true')
+    .modal-dialog.modal-dialog-centered(role='document')
+      .modal-content
+        .modal-header
+          button.close.d-flex.align-items-center.justify-content-center(type='button' data-dismiss='modal' aria-label='Close')
+            span.ion-ios-close(aria-hidden='true')
+        .row
+          .col-md.mb-md-0.mb-5
+            .modal-body.p-0
+              h3.mb-4 Sign In
+              form.signin-form(action='#')
+                .form-group
+                  input.form-control(type='text' placeholder='Username')
+                .form-group
+                  input.form-control(type='password' placeholder='Password')
+                .form-group
+                  button.form-control.btn.btn-primary.rounded.submit.px-3(type='submit') Sign In
+                .form-group.d-md-flex
+                  .form-check.w-50
+                    label.custom-control.fill-checkbox
+                      input.fill-control-input(type='checkbox')
+                      span.fill-control-indicator
+                      span.fill-control-description Remember Me
+                  .w-50.text-md-right
+                    a(href='#' style='color: #fff') Forgot Password
+              p.w-100.text-center — Or Sign In With —
+              .social.d-flex.text-center
+                a.px-2.py-3.mr-md-1.rounded(href='#')
+                  span.ion-logo-facebook.mr-2
+                  |  Facebook
+                a.px-2.py-3.ml-md-1.rounded(href='#')
+                  span.ion-logo-twitter.mr-2
+                  |  Twitter
+          .col-md-1.divider
+          .col-md
+            .modal-body.p-0
+              h3.mb-4 Sign Up
+              form.signup-form(action='#')
+                .form-group
+                  input.form-control(type='text' placeholder='First Name')
+                .form-group
+                  input.form-control(type='text' placeholder='Last Name')
+                .form-group
+                  input.form-control(type='email' placeholder='Email address')
+                .form-group
+                  input.form-control(type='password' placeholder='Password')
+                .form-group
+                  button.form-control.btn.btn-primary.rounded.submit.px-3(type='submit') Login
+                .form-group
+                  .w-100
+                    p.mb-0 By creating an account, your agree to our terms.

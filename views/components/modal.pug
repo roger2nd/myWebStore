@@ -1,0 +1,11 @@
+mixin modal(id)
+  .modal.fade(id=id,tabindex="-1",role="dialog",aria-labelledby=id+"Label" aria-hidden="true")
+    .modal-dialog.modal-lg(role='document')
+      .modal-content
+        .modal-header
+          button.close(type='button' data-dismiss='modal' aria-label='Close')
+            span(aria-hidden='true') &times;
+        .row
+          block
+        .modal-footer
+          button.btn.btn-secondary(type='button' data-dismiss='modal') Fechar
